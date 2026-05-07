@@ -1,0 +1,32 @@
+# AgentOps configuration — 1.0 flat schema.
+#
+# The four required fields are 'version', 'agent', 'dataset', and (optionally)
+# 'thresholds'. AgentOps infers evaluators from the agent type and dataset
+# columns, so most users only need this much.
+#
+# Examples:
+#
+#   agent: "my-rag:3"                      # Foundry prompt agent (name:version)
+#   agent: "https://...foundry.../agents/" # Foundry hosted endpoint
+#   agent: "https://api.example.com/chat"  # any HTTP/JSON agent (ACA, AKS, custom)
+#   agent: "model:gpt-4o"                  # raw Foundry model deployment
+
+version: 1
+
+agent: "support-bot:3"
+
+dataset: ./data/tickets.jsonl
+
+publish: foundry
+
+thresholds:
+  # Tool-calling metrics (auto-inferred from tool_definitions /
+  # tool_calls in the dataset).
+  tool_call_accuracy: ">=0.8"
+  intent_resolution: ">=4"
+  task_adherence: ">=0.8"
+  # Text quality metrics.
+  coherence: ">=3"
+  fluency: ">=3"
+  # Latency budget.
+  avg_latency_seconds: "<=10"
