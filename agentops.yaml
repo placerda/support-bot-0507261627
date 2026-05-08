@@ -15,7 +15,7 @@
 version: 1
 
 
-agent: "support-bot:3"
+agent: "support-bot:1"
 
 
 dataset: ./data/tickets.jsonl
