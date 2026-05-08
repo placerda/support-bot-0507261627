@@ -11,9 +11,12 @@
 #   agent: "https://api.example.com/chat"  # any HTTP/JSON agent (ACA, AKS, custom)
 #   agent: "model:gpt-4o"                  # raw Foundry model deployment
 
+
 version: 1
 
-agent: "support-bot:3"
+
+agent: "support-bot:1"
+
 
 dataset: ./data/tickets.jsonl
 
